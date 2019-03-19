@@ -91,7 +91,9 @@ class MainActivity : AppCompatActivity() {
             object : AsyncTask<Void?, Void?, File>() {
                 override fun doInBackground(vararg params: Void?): File {
                     val tempFile = FilesPaths.FILE_TO_SHARE.getFile(this@MainActivity, true)
-                    cachedFile.renameTo(tempFile)
+                    //TODO decide if it's better to copy or rename , but either way it's consider unsafe to directly use the cache file
+//                    cachedFile.renameTo(tempFile)
+                    cachedFile.copyTo(tempFile)
                     return tempFile
                 }
 
