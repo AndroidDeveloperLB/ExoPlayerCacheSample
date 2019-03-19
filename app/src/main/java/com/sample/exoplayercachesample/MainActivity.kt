@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
             object : AsyncTask<Void?, Void?, File>() {
                 override fun doInBackground(vararg params: Void?): File {
                     val tempFile = FilesPaths.FILE_TO_SHARE.getFile(this@MainActivity, true)
-                    cachedFile.copyTo(tempFile)
+                    cachedFile.renameTo(tempFile)
                     return tempFile
                 }
 
